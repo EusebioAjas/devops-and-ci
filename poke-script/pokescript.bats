@@ -23,5 +23,6 @@ load bats-extra
 
 @test "should report a message when incorrect number of arguments is passed" {
   run bash pokescript.sh Chameleon Charminster
+  assert_output "Incorrect number of arguments passed. Only one argument is allowed."
 }
 
