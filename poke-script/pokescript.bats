@@ -11,18 +11,18 @@ load bats-extra
   assert_output "Id=132, name=ditto, weight=40, height=3, order=214"
 }
 
-@test "should report a message when pokemon doesn't exists" {
+@test "should print a message when pokemon doesn't exists" {
   run bash pokescript.sh Dodonzo
   assert_output "Pokemon not found."
 }
 
-@test "should report a message when no pokemon name is passed" {
+@test "print usage banner with no value given" {
   run bash pokescript.sh
-  assert_output "No pokemon name is passed."
+  assert_output "Usage: pokescript.sh <name|id>"
 }
 
-@test "should report a message when incorrect number of arguments is passed" {
+@test "Incorrect arguments" {
   run bash pokescript.sh Chameleon Charminster
-  assert_output "Incorrect number of arguments passed. Only one argument is allowed."
+  assert_output "Usage: pokescript.sh <name|id>"
 }
 
